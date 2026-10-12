@@ -1,0 +1,46 @@
+PRACTICAL 6 — HBase Shell commands
+Start HBase and enter: hbase shell
+
+# Create table with column families personal and academic
+create 'Students', 'personal', 'academic'
+
+# Insert at least five student records
+put 'Students', '1', 'personal:Name', 'Aarav Sharma'
+put 'Students', '1', 'personal:Course', 'BCA'
+put 'Students', '1', 'academic:Semester', '2'
+put 'Students', '1', 'academic:Marks', '82.5'
+
+put 'Students', '2', 'personal:Name', 'Ananya Verma'
+put 'Students', '2', 'personal:Course', 'BCA'
+put 'Students', '2', 'academic:Semester', '4'
+put 'Students', '2', 'academic:Marks', '88'
+
+put 'Students', '3', 'personal:Name', 'Rohan Singh'
+put 'Students', '3', 'personal:Course', 'BSc IT'
+put 'Students', '3', 'academic:Semester', '2'
+put 'Students', '3', 'academic:Marks', '76'
+
+put 'Students', '4', 'personal:Name', 'Meera Gupta'
+put 'Students', '4', 'personal:Course', 'BCA'
+put 'Students', '4', 'academic:Semester', '6'
+put 'Students', '4', 'academic:Marks', '91.5'
+
+put 'Students', '5', 'personal:Name', 'Kabir Joshi'
+put 'Students', '5', 'personal:Course', 'BSc IT'
+put 'Students', '5', 'academic:Semester', '4'
+put 'Students', '5', 'academic:Marks', '79'
+
+# Retrieve a particular student
+get 'Students', '3'
+
+# Update student information (write a new cell version)
+put 'Students', '3', 'academic:Marks', '80'
+
+# Display all records
+scan 'Students'
+
+# Delete one student row
+deleteall 'Students', '5'
+scan 'Students'
+
+# To remove the entire table (destructive): disable 'Students'; drop 'Students'
